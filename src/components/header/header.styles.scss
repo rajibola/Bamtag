@@ -7,8 +7,28 @@
 
   .logo-container {
     height: 100%;
-    width: 70px;
-    padding: 25px;
+    width: auto;
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin-top: 15px;
+    }
+    
+    .center {
+      font-size: 28px;
+      align-items: center;
+      justify-content: start;
+      text-align: left;
+      font-weight: bold;
+      color: #34495e;
+
+      span {
+        font-size: 50px;
+        font-weight: normal;
+        padding-top: 20px;
+      }
+    }
   }
 
   .options {
@@ -21,6 +41,7 @@
     .option {
       padding: 10px 15px;
       cursor: pointer;
+      color: #34495e;
     }
   }
 }
