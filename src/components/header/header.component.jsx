@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { auth } from "../../firebase/firebase.utils";
+import Searchbar from "../searchbar/searchbar.component";
 import CartIcon from "../cart-icon/cart-icon.components";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
@@ -21,7 +22,10 @@ const Header = ({ currentUser, hidden }) => {
           <span>B</span>amtag<span>S</span>ignature
         </div>
       </Link>
+
       <div className="options">
+        <Searchbar />
+
         <Link className="option" to="/shop">
           SHOP
         </Link>
@@ -30,7 +34,7 @@ const Header = ({ currentUser, hidden }) => {
         </Link>
         {currentUser ? (
           <div className="option" onClick={() => auth.signOut()}>
-            SIGN OUT
+            {currentUser.displayName}
           </div>
         ) : (
           <Link className="option" to="/signin">

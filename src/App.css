@@ -1,11 +1,44 @@
 body {
-  font-family: "Open Sans Condensed";
-  padding: 20px 80px;
+  font-family: "Open Sans Condensed", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  padding: 20px 30px;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+.sort {
+  display: grid;
+  grid:
+    100px auto 150px
+    / repeat(8, 1fr);
+
+  grid-template-areas:
+    "h h h h  h h h h h"
+    "s s c c  c c c c c"
+    "f f f f  f f f f f";
+
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: h;
+}
+
+.content {
+  grid-area: c;
+}
+
+.sidebar {
+  grid-area: s;
+  padding-top: 20px;
+  position: relative;
+}
+
+.footer {
+  grid-area: f;
 }
 
 * {

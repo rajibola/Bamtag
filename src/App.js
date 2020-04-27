@@ -9,6 +9,8 @@ import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up
 import CheckoutPage from "./pages/checkout/checkout.component";
 
 import Header from "./components/header/header.component";
+import Sidebar from "./components/sidebar/sidebar.component";
+import Footer from "./components/footer/footer.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils.js";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
@@ -50,24 +52,37 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={CheckoutPage} />
-          <Route
-            exact
-            path="/signin"
-            render={() =>
-              this.props.currentUser ? (
-                <Redirect to="/" />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
-          />
-        </Switch>
+      <div className="sort">
+        <div className="header">
+          <Header />
+        </div>
+
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+
+        <div className="content">
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                this.props.currentUser ? (
+                  <Redirect to="/" />
+                ) : (
+                  <SignInAndSignUpPage />
+                )
+              }
+            />
+          </Switch>
+        </div>
+        <div className="footer">
+          {" "}
+          <Footer />
+        </div>
       </div>
     );
   }
